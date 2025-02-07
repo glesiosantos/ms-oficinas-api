@@ -1,9 +1,14 @@
-# MUMEC - API de Gestão para Oficinas Mecânicas
+<div align="center">
+    <img src="./src/main/resources/templates/mumec_logo.png" width="250px"/>
+</div>
+
+## MUMEC - API de Gestão para Oficinas Mecânicas
 
 MUMEC (Multi-Mechanic Management) é uma API desenvolvida para gerenciar múltiplas oficinas mecânicas, abrangendo serviços para carros, motos e bicicletas. O sistema oferece funcionalidades completas para administração de pedidos, produtos, estoque, fluxo de caixa e gerenciamento de clientes e seus veículos.
 
 ## 🚀 Funcionalidades
 
+- **Autenticação e Autorização**: Autenticação de colaboradores de acordo a unidade.  
 - **Gerenciamento de Pedidos**: Cadastro, atualização e acompanhamento do status dos serviços prestados.  
 - **Controle de Produtos e Estoque**: Administração de peças, acessórios e insumos utilizados nas oficinas.  
 - **Gestão Financeira**: Monitoramento de receitas, despesas e fluxo de caixa.  
@@ -21,7 +26,7 @@ MUMEC (Multi-Mechanic Management) é uma API desenvolvida para gerenciar múltip
 
 ### Pré-requisitos
 
-- [Java 21](https://docs.oracle.com/en/java/)) instalado  
+- [Java 21](https://docs.oracle.com/en/java/) instalado  
 - Gerenciador de pacotes [maven](https://maven.apache.org/)  
 - Banco de dados configurado (PostgreSQL)
 - Mensageria [RabittMQ] (https://www.rabbitmq.com/)  
@@ -30,18 +35,18 @@ MUMEC (Multi-Mechanic Management) é uma API desenvolvida para gerenciar múltip
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/mumec.git
+git clone https://github.com/glesiosantos/resumo-do-lab.git
 
 # Acesse a pasta do projeto
 cd mumec
 
 # Instale as dependências
-npm install  # ou yarn install
+mvn install
 
-# Configure as variáveis de ambiente no arquivo .env
+# Configure as variáveis de ambiente no arquivo 
 
 # Inicie a aplicação
-npm start  # ou yarn start
+mvn spring-boot:run
 ```
 
 ## 📖 Documentação da API
@@ -50,7 +55,7 @@ A documentação da API pode ser acessada via Swagger na rota `/api-docs` após 
 
 ## 📜 Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Este projeto está licenciado sob a [MIT License](./LICENSE).
 
 ## 🤝 Contribuição
 
