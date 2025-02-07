@@ -14,16 +14,17 @@ MUMEC (Multi-Mechanic Management) é uma API desenvolvida para gerenciar múltip
 
 - **Backend**: [Java](https://docs.oracle.com/en/java/) com [Spring Boot](https://spring.io/projects/spring-boot)  
 - **Banco de Dados**: [PostgreSQL](https://www.postgresql.org/)  
-- **Autenticação**: JWT com AUTH0 (https://auth0.com/docs/secure/tokens/json-web-tokens)  
+- **Autenticação**: JWT com [AUTH0] (https://auth0.com/docs/secure/tokens/json-web-tokens)  
 - **Documentação da API**: Swagger ou Postman  
 
 ## 📌 Como Executar o Projeto
 
 ### Pré-requisitos
 
-- [Node.js](https://nodejs.org/) instalado  
-- Gerenciador de pacotes ([npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/))  
-- Banco de dados configurado (MongoDB/PostgreSQL)  
+- [Java 21](https://docs.oracle.com/en/java/)) instalado  
+- Gerenciador de pacotes [maven](https://maven.apache.org/)  
+- Banco de dados configurado (PostgreSQL)
+- Mensageria [RabittMQ] (https://www.rabbitmq.com/)  
 
 ### Instalação e Configuração
 
