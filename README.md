@@ -6,7 +6,7 @@
 
 MUMEC (Multi-Mechanic Management) é uma API desenvolvida para gerenciar múltiplas oficinas mecânicas, abrangendo serviços para carros, motos e bicicletas. O sistema oferece funcionalidades completas para administração de pedidos, produtos, estoque, fluxo de caixa e gerenciamento de clientes e seus veículos.
 
-## 🚀 Funcionalidades
+## 🚀 Funcionalidades (Em desenvolvimento)
 
 - **Autenticação e Autorização**: Autenticação de colaboradores de acordo a unidade.  
 - **Gerenciamento de Pedidos**: Cadastro, atualização e acompanhamento do status dos serviços prestados.  
