@@ -35,10 +35,10 @@ MUMEC (Multi-Mechanic Management) é uma API desenvolvida para gerenciar múltip
 
 ```bash
 # Clone o repositório
-git clone https://github.com/glesiosantos/resumo-do-lab.git
+git clone https://github.com/glesiosantos/ms-oficinas-api.git
 
 # Acesse a pasta do projeto
-cd mumec
+cd ms-oficinas-api
 
 # Instale as dependências
 mvn install
