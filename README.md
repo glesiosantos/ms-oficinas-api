@@ -26,10 +26,11 @@ MUMEC (Multi-Mechanic Management) é uma API desenvolvida para gerenciar múltip
 
 ### Pré-requisitos
 
-- [Java 21](https://docs.oracle.com/en/java/) instalado  
-- Gerenciador de pacotes [maven](https://maven.apache.org/)  
-- Banco de dados configurado (PostgreSQL)
-- Mensageria [RabittMQ] (https://www.rabbitmq.com/)  
+- [Java 21](https://docs.oracle.com/en/java/) ou superior instalado;  
+- Gerenciador de pacotes [maven](https://maven.apache.org/);  
+- Banco de dados configurado (PostgreSQL de preferência) ou Docker com PostgreSQL;
+- Caso use o Docker, existe um docker compose pré-configurado para ser executado;
+- Mensageria [RabittMQ] (https://www.rabbitmq.com/);
 
 ### Instalação e Configuração
 
@@ -37,13 +38,19 @@ MUMEC (Multi-Mechanic Management) é uma API desenvolvida para gerenciar múltip
 # Clone o repositório
 git clone https://github.com/glesiosantos/ms-oficinas-api.git
 
+# Caso use docker
+docker-compose up -d
+
 # Acesse a pasta do projeto
 cd ms-oficinas-api
 
 # Instale as dependências
 mvn install
 
-# Configure as variáveis de ambiente no arquivo 
+# Para rodar localmente, certifique se o application.yml está com active setado com valor 'DEV'
+spring:
+  profiles:
+    active: dev
 
 # Inicie a aplicação
 mvn spring-boot:run
