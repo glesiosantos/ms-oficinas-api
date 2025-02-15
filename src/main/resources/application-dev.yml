@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ms_oficinas_db
+    username: postgres
+    password: 102030
+  sql:
+    init:
+      mode: always
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+#api:
+#  security:
+#    secret: ${security.secret}
+#app:
+#  consumidor:
+#    urls: http://localhost:9000
