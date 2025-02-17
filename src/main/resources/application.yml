@@ -9,6 +9,10 @@ spring:
   application:
     name: ms-oficinas-api
 
+rabbitmq:
+  queue:
+    criar-oficina: rabbitmq-queue-criar-oficina
+
 # swagger-ui custom path
 #springdoc:
 #  swagger-ui:

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/ms_oficinas_db
+    url: jdbc:postgresql://localhost:5432/msoficinasdb
     username: postgres
     password: 102030
   sql:
@@ -11,6 +11,12 @@ spring:
       ddl-auto: create-drop
     show-sql: true
     defer-datasource-initialization: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: ${rabbitmq.username}
+    password: ${rabbitmq.password}
+
 #api:
 #  security:
 #    secret: ${security.secret}
