@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @Entity
 @Table(name = "usuarios")
-public class Usuario extends Auditoria{
+public class Usuario extends Auditoria {
 
     @Column(name = "avatar", length = 150, columnDefinition = "VARCHAR(150) default 'default.png'")
     private String avatar;

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -41,6 +42,6 @@ public class Estabelecimento extends Auditoria {
     private Set<String> contatos;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estabelecimento")
+    @OneToMany(mappedBy = "estabelecimento", cascade = CascadeType.ALL)
     private List<Usuario> usuarios;
 }
