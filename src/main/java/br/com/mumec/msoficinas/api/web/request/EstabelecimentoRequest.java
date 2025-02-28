@@ -7,6 +7,7 @@ public record EstabelecimentoRequest(
         String cpfProprietario,
         String proprietario,
         String cep,
+        String plano,
         String logradouro,
         String bairro,
         String cidade,

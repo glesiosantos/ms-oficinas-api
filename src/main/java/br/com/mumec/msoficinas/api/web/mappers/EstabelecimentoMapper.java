@@ -12,6 +12,7 @@ public interface EstabelecimentoMapper {
     @Mapping(target = "cpfOuCnpj", source = "cpfOuCnpj")
     @Mapping(target = "razaoSocial", source = "razaoSocial")
     @Mapping(target = "nomeFantasia", source = "nomeFantasia")
+    @Mapping(target = "plano", source = "plano")
     @Mapping(target = "endereco.cep", source = "cep")
     @Mapping(target = "endereco.logradouro", source = "logradouro")
     @Mapping(target = "endereco.bairro", source = "bairro")

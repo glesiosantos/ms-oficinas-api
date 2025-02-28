@@ -1,4 +1,4 @@
-package br.com.mumec.msoficinas.api;
+package br.com.mumec.msoficinas.api.config;
 
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;

@@ -11,7 +11,7 @@ spring:
 
 rabbitmq:
   queue:
-    criar-oficina: rabbitmq-queue-criar-oficina
+    criar-oficina: rabbitmq-queue-novas-oficina
 
 # swagger-ui custom path
 #springdoc:

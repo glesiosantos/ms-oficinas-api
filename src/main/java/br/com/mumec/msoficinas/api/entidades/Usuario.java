@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @SuperBuilder
@@ -35,7 +38,9 @@ public class Usuario extends Auditoria {
     @Column(columnDefinition = "BOOLEAN default 'false'")
     private boolean ativo;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "estabelecimento_id", nullable = false)
-    private Estabelecimento estabelecimento;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "usuario_estabelecimento",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "estabelecimento_id"))
+    private Set<Estabelecimento> estabelecimentos = new HashSet<>();
 }

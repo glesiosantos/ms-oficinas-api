@@ -1,6 +1,5 @@
 package br.com.mumec.msoficinas.api.messageria;
 
-import br.com.mumec.msoficinas.api.entidades.Estabelecimento;
 import br.com.mumec.msoficinas.api.services.EstabelecimentoService;
 import br.com.mumec.msoficinas.api.web.request.EstabelecimentoRequest;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class EstabelecimentoServiceImpl implements EstabelecimentoService {
@@ -38,10 +39,9 @@ public class EstabelecimentoServiceImpl implements EstabelecimentoService {
                 .ativo(true)
                 .senha(request.cpfProprietario())
                 .perfil(Perfil.PROP)
-                .estabelecimento(estabelecimento)
+                .estabelecimentos(Set.of(estabelecimento))
                 .build();
-
-        estabelecimento.setUsuarios(Collections.singletonList(usuario));
+        estabelecimento.setUsuarios(Set.of(usuario));
 
         return estabelecimentoRepository.save(estabelecimento);
     }
