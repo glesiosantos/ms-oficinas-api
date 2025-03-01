@@ -9,6 +9,7 @@ import br.com.mumec.msoficinas.api.services.exceptions.ObjetoJaRegistradoExcepti
 import br.com.mumec.msoficinas.api.web.mappers.EstabelecimentoMapper;
 import br.com.mumec.msoficinas.api.web.request.EstabelecimentoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -25,6 +26,9 @@ public class EstabelecimentoServiceImpl implements EstabelecimentoService {
     @Autowired
     private EstabelecimentoMapper estabelecimentoMapper;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public Estabelecimento cadastrarEstabelecimento(EstabelecimentoRequest request) throws Exception {
 
@@ -37,7 +41,7 @@ public class EstabelecimentoServiceImpl implements EstabelecimentoService {
                 .nomeCompleto(request.proprietario())
                 .cpf(request.cpfProprietario())
                 .ativo(true)
-                .senha(request.cpfProprietario())
+                .senha(passwordEncoder.encode(request.cpfProprietario().substring(0, 6)))
                 .perfil(Perfil.PROP)
                 .estabelecimentos(Set.of(estabelecimento))
                 .build();

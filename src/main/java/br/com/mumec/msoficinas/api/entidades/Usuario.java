@@ -38,7 +38,7 @@ public class Usuario extends Auditoria {
     @Column(columnDefinition = "BOOLEAN default 'false'")
     private boolean ativo;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "usuario_estabelecimento",
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "estabelecimento_id"))
