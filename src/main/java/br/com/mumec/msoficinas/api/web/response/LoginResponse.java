@@ -6,5 +6,6 @@ public record LoginResponse (
         String token,
         List<EstabelecimentoLoginResponse> estabelecimentos,
         String cpf,
-        String nome
+        String nome,
+        String perfil
 ){}

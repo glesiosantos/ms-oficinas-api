@@ -19,12 +19,13 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Transactional(readOnly = true)
     @Override
     public Usuario buscarUsuarioPeloCpf(String cpf) throws Exception {
-        return usuarioRepository.findByCpfComEstabelecimentos(cpf).orElseThrow(() -> new ObjetoNaoEncontradoException(""));
+        return usuarioRepository.findByCpfComEstabelecimentos(cpf)
+                .orElseThrow(() -> new ObjetoNaoEncontradoException(String.format("Nenhum usuário encontrado com este CPF %s", cpf)));
     }
 
     @Transactional(readOnly = true)
     @Override
     public List<Usuario> carregarUsuarioPeloEstabelecimento(Long idEstabelecimento) {
-        return List.of();
+        return usuarioRepository.findUsuarioByEstabelecimentoId(idEstabelecimento);
     }
 }

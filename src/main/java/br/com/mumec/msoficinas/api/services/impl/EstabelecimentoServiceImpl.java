@@ -41,7 +41,7 @@ public class EstabelecimentoServiceImpl implements EstabelecimentoService {
                 .nomeCompleto(request.proprietario())
                 .cpf(request.cpfProprietario())
                 .ativo(true)
-                .senha(passwordEncoder.encode(request.cpfProprietario()))
+                .senha(passwordEncoder.encode(request.cpfProprietario().substring(0, 6)))
                 .perfil(Perfil.PROP)
                 .estabelecimentos(Set.of(estabelecimento))
                 .build();

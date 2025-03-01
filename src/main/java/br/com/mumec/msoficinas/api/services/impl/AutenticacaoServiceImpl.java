@@ -35,7 +35,7 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
         String token = jwtService.gerarToken((UserDetails) authenticated.getPrincipal());
         List<EstabelecimentoLoginResponse> estabelecimentos =  usuario.getEstabelecimentos() //convertendo lista de estabelecimentos
                 .stream().map(estabelecimento -> new EstabelecimentoLoginResponse(estabelecimento.getId(), estabelecimento.getNomeFantasia())).toList();
-        return new LoginResponse(token, estabelecimentos, usuario.getCpf(), usuario.getNomeCompleto());
+        return new LoginResponse(token, estabelecimentos, usuario.getCpf(), usuario.getNomeCompleto(), usuario.getPerfil().getNome());
     }
 
     @Override
