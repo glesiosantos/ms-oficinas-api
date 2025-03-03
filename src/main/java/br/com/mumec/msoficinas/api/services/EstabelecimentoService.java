@@ -6,4 +6,6 @@ import br.com.mumec.msoficinas.api.web.request.EstabelecimentoRequest;
 public interface EstabelecimentoService {
 
     Estabelecimento cadastrarEstabelecimento(EstabelecimentoRequest request) throws Exception;
+
+    Estabelecimento carregarEstabelecimento(Long idEstabelecimento) throws Exception;
 }
