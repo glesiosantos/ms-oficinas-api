@@ -1,5 +1,6 @@
 package br.com.mumec.msoficinas.api.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "produtos")
-public class Produto extends Estabelecimento {
+public class Produto extends EntidadeAbstrata {
 
     @Column(name = "nm_produto", nullable = false)
     private String nomeProduto;
@@ -33,7 +34,8 @@ public class Produto extends Estabelecimento {
     @Column(name = "margem_lucro", nullable = false)
     private int margemDeLucro;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "estabelecimento_id")
     private Estabelecimento estabelecimento;
 
