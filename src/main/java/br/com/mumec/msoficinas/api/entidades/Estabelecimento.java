@@ -46,6 +46,6 @@ public class Estabelecimento extends Auditoria {
             joinColumns = @JoinColumn(name = "estabelecimento_id"))
     private Set<String> contatos;
 
-    @ManyToMany(mappedBy = "estabelecimentos")
+    @ManyToMany(mappedBy = "estabelecimentos", cascade = CascadeType.ALL)
     private Set<Usuario> usuarios = new HashSet<>();
 }
