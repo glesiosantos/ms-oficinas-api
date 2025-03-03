@@ -6,6 +6,8 @@ public record EstabelecimentoRequest(
         String nomeFantasia,
         String cpfProprietario,
         String proprietario,
+        boolean ativo,
+        int vencimento,
         String cep,
         String plano,
         String logradouro,

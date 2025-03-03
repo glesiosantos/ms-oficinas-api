@@ -1,7 +1,6 @@
 package br.com.mumec.msoficinas.api.entidades;
 
 import br.com.mumec.msoficinas.api.enuns.Plano;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -41,11 +38,14 @@ public class Estabelecimento extends Auditoria {
     @Enumerated(EnumType.STRING)
     private Plano plano;
 
+    @Column(name = "dt_vencimento", nullable = false)
+    private int dataVencimento;
+
     @ElementCollection(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_estabelecimento_contatos",
+    @JoinTable(name = "estabelecimento_contatos",
             joinColumns = @JoinColumn(name = "estabelecimento_id"))
     private Set<String> contatos;
 
-    @ManyToMany(mappedBy = "estabelecimentos", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "estabelecimentos")
     private Set<Usuario> usuarios = new HashSet<>();
 }
