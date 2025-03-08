@@ -3,6 +3,7 @@ package br.com.msoficinas.api.web.controllers;
 import br.com.msoficinas.api.services.FornecedorService;
 import br.com.msoficinas.api.web.request.FornecedorFilterRequest;
 import br.com.msoficinas.api.web.request.FornecedorRequest;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,7 +20,7 @@ public class FornecedorController {
     private FornecedorService fornecedorService;
 
     @PostMapping
-    public ResponseEntity<?> addFornecedorDoEstabelecimento(@RequestBody FornecedorRequest request) throws Exception {
+    public ResponseEntity<?> addFornecedorDoEstabelecimento(@RequestBody @Valid FornecedorRequest request) throws Exception {
         var fornecedor = fornecedorService.salvarFornecedorDoEstabelecimento(request);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(fornecedor.getId()).toUri();
@@ -34,7 +35,7 @@ public class FornecedorController {
 
     @PreAuthorize("hasRole('PROP')")
     @DeleteMapping("/remove")
-    public ResponseEntity<?> removerFornecedor(@RequestBody FornecedorFilterRequest request) throws Exception {
+    public ResponseEntity<?> removerFornecedor(@RequestBody @Valid FornecedorFilterRequest request) throws Exception {
         System.out.println("Fornecedor "+request.idFornecedor());
         System.out.println("Estabelecimento "+request.idEstabelecimento());
 //        fornecedorService.excluirFornecedorDoEstabelecimento(idEstabelecimento, idFornecedor);
