@@ -18,7 +18,7 @@ spring:
     password: ${rabbitmq.password}
 api:
   security:
-    secret: ${security.secret}
+    secret: 355ddcecb3d4dabecaea380021051321b353d893
 app:
   consumidor:
     urls: http://localhost:9000
