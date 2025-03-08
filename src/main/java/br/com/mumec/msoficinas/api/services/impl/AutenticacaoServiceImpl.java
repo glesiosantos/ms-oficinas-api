@@ -30,7 +30,7 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
     @Override
     public LoginResponse autenticar(LoginRequest request) throws Exception {
         var authenticated = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(request.cpf(), request.senha()));
+                .authenticate(new UsernamePasswordAuthenticationToken(request.cpf().replace(".","").replace("-",""), request.senha()));
         Usuario usuario = usuarioService.buscarUsuarioPeloCpf(authenticated.getName());
         String token = jwtService.gerarToken((UserDetails) authenticated.getPrincipal());
         List<EstabelecimentoLoginResponse> estabelecimentos =  usuario.getEstabelecimentos() //convertendo lista de estabelecimentos

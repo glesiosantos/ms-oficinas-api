@@ -41,6 +41,12 @@ public class Estabelecimento extends Auditoria {
     @Enumerated(EnumType.STRING)
     private Plano plano;
 
+    @Column(name = "dt_vencimento", nullable = false)
+    private int dataVencimento;
+
+    @Column(name = "teste", columnDefinition = "boolean default 'false'")
+    private boolean paraTestes;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @JoinTable(name = "tb_estabelecimento_contatos",
             joinColumns = @JoinColumn(name = "estabelecimento_id"))
