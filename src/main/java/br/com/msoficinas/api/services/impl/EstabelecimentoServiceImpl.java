@@ -6,6 +6,7 @@ import br.com.msoficinas.api.enuns.Perfil;
 import br.com.msoficinas.api.repositories.EstabelecimentoRepository;
 import br.com.msoficinas.api.services.EstabelecimentoService;
 import br.com.msoficinas.api.services.exceptions.ObjetoJaRegistradoException;
+import br.com.msoficinas.api.services.exceptions.ObjetoNaoEncontradoException;
 import br.com.msoficinas.api.web.mappers.EstabelecimentoMapper;
 import br.com.msoficinas.api.web.request.EstabelecimentoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,11 @@ public class EstabelecimentoServiceImpl implements EstabelecimentoService {
         estabelecimento.setUsuarios(Set.of(usuario));
 
         return estabelecimentoRepository.save(estabelecimento);
+    }
+
+    @Override
+    public Estabelecimento buscarEstabelecimentoPeloId(Long idEstabelecimento) throws Exception{
+        return estabelecimentoRepository.findById(idEstabelecimento)
+                .orElseThrow(() -> new ObjetoNaoEncontradoException(String.format("Nenhum estabelecimento encontrado com este id '%s'",idEstabelecimento)));
     }
 }
