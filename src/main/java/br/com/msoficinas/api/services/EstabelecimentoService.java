@@ -6,4 +6,6 @@ import br.com.msoficinas.api.web.request.EstabelecimentoRequest;
 public interface EstabelecimentoService {
 
     Estabelecimento cadastrarEstabelecimento(EstabelecimentoRequest request) throws Exception;
+
+    Estabelecimento buscarEstabelecimentoPeloId(Long idEstabelecimento) throws Exception;
 }
