@@ -1,9 +1,11 @@
 package br.com.msoficinas.api.web.controllers;
 
 import br.com.msoficinas.api.services.FornecedorService;
+import br.com.msoficinas.api.web.request.FornecedorFilterRequest;
 import br.com.msoficinas.api.web.request.FornecedorRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -25,8 +27,17 @@ public class FornecedorController {
     }
 
     @GetMapping("/{idEstabelecimento}")
-    public ResponseEntity<?> carregarFornecedoresDoEstabelecimento(@RequestParam(name = "idEstabelecimento") Long idEstabelecimento) {
+    public ResponseEntity<?> carregarFornecedoresDoEstabelecimento(@PathVariable(name = "idEstabelecimento") Long idEstabelecimento) {
         var fornecedores = fornecedorService.carregarFornecedoresPeloEstabelecimento(idEstabelecimento);
         return ResponseEntity.ok(fornecedores);
+    }
+
+    @PreAuthorize("hasRole('PROP')")
+    @DeleteMapping("/remove")
+    public ResponseEntity<?> removerFornecedor(@RequestBody FornecedorFilterRequest request) throws Exception {
+        System.out.println("Fornecedor "+request.idFornecedor());
+        System.out.println("Estabelecimento "+request.idEstabelecimento());
+//        fornecedorService.excluirFornecedorDoEstabelecimento(idEstabelecimento, idFornecedor);
+        return ResponseEntity.noContent().build();
     }
 }

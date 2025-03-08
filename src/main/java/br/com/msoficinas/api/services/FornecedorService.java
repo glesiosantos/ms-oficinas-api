@@ -10,5 +10,5 @@ public interface FornecedorService {
 
     List<Fornecedor> carregarFornecedoresPeloEstabelecimento(Long idEstabelecimento);
 
-    void excluirFornecedorDoEstabelecimento(Long idFornecedor);
+    void excluirFornecedorDoEstabelecimento(Long idEstabelecimento, Long idFornecedor) throws Exception;
 }
